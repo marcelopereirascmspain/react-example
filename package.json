@@ -1,0 +1,30 @@
+{
+  "name": "react-example",
+  "version": "1.0.0",
+  "description": "## install `brew install nodejs`",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server -d --colors --inline",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marcelopereirascmspain/react-example"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcelopereirascmspain/react-example/issues"
+  },
+  "homepage": "https://github.com/marcelopereirascmspain/react-example",
+  "devDependencies": {
+    "babel": "^4.7.16",
+    "babel-core": "^4.7.16",
+    "babel-loader": "^4.2.0",
+    "webpack": "^1.7.3",
+    "webpack-dev-server": "^1.7.0"
+  },
+  "dependencies": {
+    "react": "^0.13.1"
+  }
+}
