@@ -2,8 +2,12 @@
 
 ## instalation
 
+### tools
+
 `brew install nodejs`
 
 [babel sublime](https://github.com/babel/babel-sublime)
 
-npm install
+### deps
+
+`npm install`

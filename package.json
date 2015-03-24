@@ -1,7 +1,7 @@
 {
   "name": "react-example",
   "version": "1.0.0",
-  "description": "## install `brew install nodejs`",
+  "description": "react.js example",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server -d --colors --inline",
