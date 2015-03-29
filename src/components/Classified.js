@@ -3,6 +3,12 @@ import classnames from "classnames";
 import "./Classified.scss";
 
 const Classified = React.createClass({
+  getInitialState: function () {
+    return {
+      editing: false
+    };
+  },
+
   handleClick: function (event) {
     this.props.onClick(event);
   },
@@ -10,6 +16,12 @@ const Classified = React.createClass({
   handleFavClick: function (id, event) {
     event.stopPropagation();
     this.props.onFavClick(id);
+  },
+
+  handleSendMessageClick: function (id, event) {
+    event.stopPropagation();
+    this.props.onSendMessageCLick(id);
+    this.setState({ editing: true });
   },
 
   render: function() {
@@ -39,6 +51,18 @@ const Classified = React.createClass({
       );
     }
 
+    let messageBox = null;
+
+    if (this.state.editing) {
+      messageBox = (
+        <div className="scm-classified__messagebox">
+          <textarea
+            placeholder="Ask the seller anything"
+            autoFocus={true} />
+        </div>
+      );
+    }
+
     return (
       <article
         itemScope
@@ -46,7 +70,7 @@ const Classified = React.createClass({
         className={className}
         onClick={this.handleClick}>
         <div className="scm-classified__media">
-          {/*<img src={this.props.ad.imageURL} alt={""} />*/}
+          <img src={this.props.ad.imageURL} alt={""} />
         </div>
         <div className="scm-classified__content">
           <h1 className="scm-classified__title">
@@ -61,7 +85,7 @@ const Classified = React.createClass({
             itemProp="offers"
             itemScope
             itemType="http://schema.org/Offer">
-            <span itemProp="price">{this.props.ad.price}</span>
+            <span itemProp="price">donate {this.props.ad.price}</span>
           </div>
           <div className="scm-classified__description">
             {this.props.ad.description}
@@ -69,8 +93,13 @@ const Classified = React.createClass({
         </div>
         <div className="scm-classified__actions">
           { favoriteButton }
-          <button className="scm-classified__action">contact</button>
+          <button
+            onClick={this.handleSendMessageClick.bind(this, id)}
+            className="scm-classified__action">
+            send message
+          </button>
         </div>
+        { messageBox }
       </article> 
     );
   }

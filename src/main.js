@@ -21,9 +21,12 @@ const App = React.createClass({
   },
 
   render: function () {
+    var numberOfFavs = this.state.favorites.length
     return (
       <div>
-        <h1>{this.state.favorites.length}</h1>
+        <div className="appbar">
+          <span className="appbar__button">{numberOfFavs} {numberOfFavs === 1 ? "favorite" : "favorites"}</span>
+        </div>
         <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" />
         <ClassifiedList
           ads={this.props.data.ads}

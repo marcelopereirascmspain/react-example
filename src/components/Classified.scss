@@ -17,6 +17,10 @@
   }
 }
 
+.scm-classified__description {
+  color: #aaa;
+}
+
 .scm-classified__content {
   padding: 8px;
 }
@@ -49,5 +53,19 @@
 .scm-classified__action--active {
   color: #29a5e8;
   font-weight: bold;
+}
+
+.scm-classified__messagebox {
+  border-top: 1px solid #eee;
+  padding: 4px;
+  background: #fff;
+
+  textarea {
+    padding: 12px;
+    display: block;
+    border: 0;
+    width: 100%;
+    background: #eee;
+  }
 }
 

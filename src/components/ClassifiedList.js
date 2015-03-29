@@ -14,6 +14,12 @@ const ClassifiedList = React.createClass({
     this.props.onFavoriteAdded(id);
   },
 
+  handleSendMessageClick: function (id) {
+    // anti-pattern but i'll leave it for now
+    this.masonry.layout();
+    this.forceUpdate();
+  },
+
   render: function() {
     const favorites = this.props.favorites;
     const items = this.props.ads.map((ad, index) => {
@@ -25,7 +31,8 @@ const ClassifiedList = React.createClass({
           <Classified
             ad={ad}
             isFavorite={favorites.indexOf(ad.id) !== -1}
-            onFavClick={this.handleFavClick}/>
+            onFavClick={this.handleFavClick}
+            onSendMessageCLick={this.handleSendMessageClick} />
         </li>
       );
     });

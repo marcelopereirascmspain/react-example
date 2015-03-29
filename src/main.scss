@@ -22,3 +22,14 @@ a {
   color: #29a5e8;
   text-decoration: none;
 }
+
+.appbar {
+  height: 44px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.appbar__button {
+  padding: 12px;
+  display: block;
+}
