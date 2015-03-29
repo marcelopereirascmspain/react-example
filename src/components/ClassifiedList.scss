@@ -1,0 +1,16 @@
+@mixin when-below($screen-width, $element-width) {
+  @media screen and (max-width: $screen-width) {
+    width: $element-width;
+  }
+}
+
+.scm-classified-list__item {
+  float: left;
+  width: 20%;
+  padding: 4px;
+
+  @include when-below(960px, 25%);
+  @include when-below(767px, 33.3333333%);
+  @include when-below(560px, 50%);
+  @include when-below(480px, 100%);
+}

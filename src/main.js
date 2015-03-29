@@ -1,24 +1,37 @@
+import "./main.scss";
 import React from "react";
+import ClassifiedList from "./components/ClassifiedList";
+import ads from "./data/api";
 
-class App extends React.Component {
-  render() {
+const App = React.createClass({
+  getInitialState: function () {
+    return {
+      favorites: []
+    };
+  },
+
+  handleFavoriteAdded: function (id) {
+    this.setState((prev) => {
+      if (prev.favorites.indexOf(id) === -1) {
+        return { favorites: prev.favorites.concat(id) };
+      }
+
+      return { favorites: prev.favorites.filter((item) => item !== id) };
+    })
+  },
+
+  render: function () {
     return (
       <div>
-        Hello world!
-        <Card />
+        <h1>{this.state.favorites.length}</h1>
+        <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" />
+        <ClassifiedList
+          ads={this.props.data.ads}
+          favorites={this.state.favorites}
+          onFavoriteAdded={this.handleFavoriteAdded}/>
       </div>
     );
   }
-}
+});
 
-function Card(props) {
-  return {
-    render: () => {
-      return (
-        <div>Hello from Card</div>
-      );
-    }
-  };
-}
-
-React.render(<App />, document.body);
+React.render(<App data={ {ads: ads} } />, document.body);
